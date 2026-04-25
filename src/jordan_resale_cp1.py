@@ -4,7 +4,6 @@
 
 import os
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib.patches import Patch
@@ -124,9 +123,12 @@ if size_col:
 
     # size_category: группировка по категории покупателя
     def categorize_size(s):
-        if pd.isna(s):    return 'Unknown'
-        if s < 4:         return 'Toddler_GS'   # детские
-        if s < 7:         return 'Women'         # женские
+        if pd.isna(s):    
+            return 'Unknown'
+        if s < 4:         
+            return 'Toddler_GS'   # детские
+        if s < 7:         
+            return 'Women'         # женские
         return 'Men'                              # мужские
 
     df['size_category'] = df['size_num'].apply(categorize_size)
